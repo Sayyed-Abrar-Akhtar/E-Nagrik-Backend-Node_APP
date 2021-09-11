@@ -8,6 +8,7 @@ const colors = require('colors');
 const morgan = require('morgan');
 
 const connectDb = require('./config/db');
+const citizenRoutes = require('./routes/citizen-route');
 
 dotenv.config();
 
@@ -22,6 +23,8 @@ app.use(morgan('dev'));
 
 const _dirname = path.resolve();
 app.use('/uploads', express.static(path.join(_dirname, '/uploads')));
+
+app.use('/api/citizen', citizenRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running');
