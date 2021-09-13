@@ -9,6 +9,7 @@ const morgan = require('morgan');
 
 const connectDb = require('./config/db');
 const citizenRoutes = require('./routes/citizen-route');
+const noticesRoutes = require('./routes/notices-route');
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ const _dirname = path.resolve();
 app.use('/uploads', express.static(path.join(_dirname, '/uploads')));
 
 app.use('/api/citizen', citizenRoutes);
+app.use('/api/notice', noticesRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running');
