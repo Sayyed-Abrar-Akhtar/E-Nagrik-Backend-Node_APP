@@ -16,8 +16,6 @@ exports.postCitizen = asyncHandler(async (req, res) => {
     password,
   } = req.body;
 
-  console.log(gender);
-
   const citizenDetail = new Citizen({
     citizen_name,
     gender,
@@ -41,6 +39,16 @@ exports.postCitizen = asyncHandler(async (req, res) => {
 
 exports.authorizeCitizen = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+
+  const citizenData = await Citizen.find({ email: email });
+
+  console.log(citizenData);
+  if (citizenData[0] != undefined) {
+    res.status(200).json({ status: 'UP', citizenData: citizenData[0] });
+  } else {
+    res.status(404);
+    throw new Error('Record does not exist!');
+  }
 });
 
 exports.getCitizen = asyncHandler(async (req, res) => {

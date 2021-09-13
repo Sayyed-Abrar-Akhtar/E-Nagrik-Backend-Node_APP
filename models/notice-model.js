@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const noticeSchema = new mongoose.Schema(
   {
-    notice_info: { type: String, required: true, unique: true },
+    info: { type: String, required: true, unique: true },
   },
   {
     timestamps: true,

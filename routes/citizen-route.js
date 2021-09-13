@@ -8,5 +8,6 @@ const router = express.Router();
 router
   .get('', CitizenController.getCitizen)
   .post('', CitizenController.postCitizen);
+router.post('/auth', CitizenController.authorizeCitizen);
 
 module.exports = router;

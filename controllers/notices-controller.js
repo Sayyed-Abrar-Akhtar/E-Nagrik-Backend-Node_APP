@@ -2,14 +2,19 @@ const asyncHandler = require('express-async-handler');
 const Notice = require('../models/notice-model');
 
 exports.postNotice = asyncHandler(async (req, res) => {
-  const noticeInfo = req.body.notice;
+  const info = req.body.info;
 
-  const noticeDetail = new Notice({ notice_info: noticeInfo });
+  const noticeDetail = new Notice({ info });
   const newNotice = await noticeDetail.save();
   res.status(201).json({ status: 'UP', newNotice });
 });
 
 exports.getNotices = asyncHandler(async (req, res) => {
-  const notices = await Notice.find({});
+  const notices = await Notice.find({}).sort({ created_at: -1 }).limit(3);
+  res.status(200).json({ status: 'UP', notices });
+});
+
+exports.getAllNotices = asyncHandler(async (req, res) => {
+  const notices = await Notice.find({}).sort({ created_at: -1 });
   res.status(200).json({ status: 'UP', notices });
 });

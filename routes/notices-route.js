@@ -9,4 +9,5 @@ router
   .get('', NoticeController.getNotices)
   .post('', NoticeController.postNotice);
 
+router.get('/all', NoticeController.getAllNotices);
 module.exports = router;
