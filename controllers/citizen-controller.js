@@ -30,11 +30,6 @@ exports.postCitizen = asyncHandler(async (req, res) => {
   });
   const newCitizen = await citizenDetail.save();
   res.status(201).json({ status: 'UP', newCitizen });
-
-  console.log('In controller - postCitizen');
-  res.status(200).json({
-    status: 'UP',
-  });
 });
 
 exports.authorizeCitizen = asyncHandler(async (req, res) => {

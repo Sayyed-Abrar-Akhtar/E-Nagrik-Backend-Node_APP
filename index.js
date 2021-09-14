@@ -10,6 +10,10 @@ const morgan = require('morgan');
 const connectDb = require('./config/db');
 const citizenRoutes = require('./routes/citizen-route');
 const noticesRoutes = require('./routes/notices-route');
+const birthRecordRoutes = require('./routes/birth-record-routes');
+const deathRecordRoutes = require('./routes/death-record-routes');
+const marriageRecordRoutes = require('./routes/marriage-record-routes');
+const complainRecordRoutes = require('./routes/complain-record-routes');
 
 dotenv.config();
 
@@ -27,6 +31,10 @@ app.use('/uploads', express.static(path.join(_dirname, '/uploads')));
 
 app.use('/api/citizen', citizenRoutes);
 app.use('/api/notice', noticesRoutes);
+app.use('/api/birth-record', birthRecordRoutes);
+app.use('/api/death-record', deathRecordRoutes);
+app.use('/api/marriage-record', marriageRecordRoutes);
+app.use('/api/complain-record', complainRecordRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running');

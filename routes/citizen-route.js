@@ -6,8 +6,9 @@ const router = express.Router();
 
 // define routes
 router
-  .get('', CitizenController.getCitizen)
-  .post('', CitizenController.postCitizen);
-router.post('/auth', CitizenController.authorizeCitizen);
+  .route('')
+  .get(CitizenController.getCitizen)
+  .post(CitizenController.postCitizen);
+router.route('/auth').post(CitizenController.authorizeCitizen);
 
 module.exports = router;

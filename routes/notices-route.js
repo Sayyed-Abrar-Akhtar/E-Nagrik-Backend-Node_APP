@@ -6,8 +6,9 @@ const router = express.Router();
 
 // define routes
 router
-  .get('', NoticeController.getNotices)
-  .post('', NoticeController.postNotice);
+  .route('')
+  .get(NoticeController.getNotices)
+  .post(NoticeController.postNotice);
 
-router.get('/all', NoticeController.getAllNotices);
+router.route('/all').get(NoticeController.getAllNotices);
 module.exports = router;

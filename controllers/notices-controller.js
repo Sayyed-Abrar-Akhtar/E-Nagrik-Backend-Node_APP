@@ -10,11 +10,11 @@ exports.postNotice = asyncHandler(async (req, res) => {
 });
 
 exports.getNotices = asyncHandler(async (req, res) => {
-  const notices = await Notice.find({}).sort({ created_at: -1 }).limit(3);
+  const notices = await Notice.find({}).sort({ createdAt: -1 }).limit(3);
   res.status(200).json({ status: 'UP', notices });
 });
 
 exports.getAllNotices = asyncHandler(async (req, res) => {
-  const notices = await Notice.find({}).sort({ created_at: -1 });
+  const notices = await Notice.find({}).sort({ createdAt: -1 });
   res.status(200).json({ status: 'UP', notices });
 });
