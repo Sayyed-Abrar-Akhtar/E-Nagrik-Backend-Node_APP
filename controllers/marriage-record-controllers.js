@@ -36,5 +36,5 @@ exports.saveMarriageRecord = asyncHandler(async (req, res) => {
     bride_grandfather_name,
   });
   const newMarriageRecord = await marriageDetail.save();
-  res.status(201).json({ status: 'UP', newMarriageRecord });
+  res.status(201).json({ status: 'UP', success: true, newMarriageRecord });
 });

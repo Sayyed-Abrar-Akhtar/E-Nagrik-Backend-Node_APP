@@ -6,15 +6,15 @@ exports.postNotice = asyncHandler(async (req, res) => {
 
   const noticeDetail = new Notice({ info });
   const newNotice = await noticeDetail.save();
-  res.status(201).json({ status: 'UP', newNotice });
+  res.status(201).json({ status: 'UP', success: true, newNotice });
 });
 
 exports.getNotices = asyncHandler(async (req, res) => {
   const notices = await Notice.find({}).sort({ createdAt: -1 }).limit(3);
-  res.status(200).json({ status: 'UP', notices });
+  res.status(200).json({ status: 'UP', success: true, notices });
 });
 
 exports.getAllNotices = asyncHandler(async (req, res) => {
   const notices = await Notice.find({}).sort({ createdAt: -1 });
-  res.status(200).json({ status: 'UP', notices });
+  res.status(200).json({ status: 'UP', success: true, notices });
 });

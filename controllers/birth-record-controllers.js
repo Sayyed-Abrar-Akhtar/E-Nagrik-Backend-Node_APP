@@ -32,5 +32,5 @@ exports.saveBirthRecord = asyncHandler(async (req, res) => {
     informant_name,
   });
   const newBirthRecord = await childDetail.save();
-  res.status(201).json({ status: 'UP', newBirthRecord });
+  res.status(201).json({ status: 'UP', success: true, newBirthRecord });
 });

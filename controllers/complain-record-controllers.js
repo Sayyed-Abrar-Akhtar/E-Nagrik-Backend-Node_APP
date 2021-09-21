@@ -20,5 +20,5 @@ exports.saveComplainRecord = asyncHandler(async (req, res) => {
     event_detail,
   });
   const newComplainRecord = await complainDetail.save();
-  res.status(201).json({ status: 'UP', newComplainRecord });
+  res.status(201).json({ status: 'UP', success: true, newComplainRecord });
 });

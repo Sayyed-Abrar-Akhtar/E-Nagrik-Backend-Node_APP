@@ -45,7 +45,7 @@ exports.saveDeathRecord = asyncHandler(async (req, res) => {
       informant_address,
     });
     const newDeathRecord = await deathDetail.save();
-    res.status(201).json({ status: 'UP', newDeathRecord });
+    res.status(201).json({ status: 'UP', success: true, newDeathRecord });
   } catch (error) {
     console.log(error);
   }
